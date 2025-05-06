@@ -1,0 +1,16 @@
+name: Send Scheduled Message
+
+on:
+  schedule:
+    - cron: '45 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message via webhook
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content": "🌙 Good evening! Your 11:15 PM reminder is here."}' \
+          ${{ secrets.WEBHOOK_URL }}
