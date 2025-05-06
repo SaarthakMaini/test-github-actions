@@ -2,7 +2,7 @@ name: Send Scheduled Message
 
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '* * * * *'
   workflow_dispatch:
 
 jobs:
